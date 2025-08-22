@@ -1,0 +1,295 @@
+body {
+margin: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #fce4ec;
+color: #4a148c;
+overflow-x: hidden;
+}
+
+.hearts-container {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 10;
+}
+
+.heart {
+position: absolute;
+width: 20px;
+height: 20px;
+background-color: #ff4081;
+border-radius: 50%;
+transform: rotate(45deg);
+opacity: 0;
+animation: fall 5s linear infinite, pulse 1s ease-in-out infinite alternate;
+}
+
+.heart::before,
+.heart::after {
+content: '';
+position: absolute;
+width: 20px;
+height: 20px;
+background-color: #ff4081;
+border-radius: 50%;
+}
+
+.heart::before {
+top: -10px;
+left: 0;
+}
+
+.heart::after {
+left: 10px;
+top: 0;
+}
+
+.hearts-container .heart:nth-child(1) { left: 10%; animation-delay: 0.5s; }
+.hearts-container .heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+.hearts-container .heart:nth-child(3) { left: 30%; animation-delay: 1.5s; }
+.hearts-container .heart:nth-child(4) { left: 40%; animation-delay: 2s; }
+.hearts-container .heart:nth-child(5) { left: 50%; animation-delay: 2.5s; }
+.hearts-container .heart:nth-child(6) { left: 60%; animation-delay: 3s; }
+.hearts-container .heart:nth-child(7) { left: 70%; animation-delay: 3.5s; }
+.hearts-container .heart:nth-child(8) { left: 80%; animation-delay: 4s; }
+.hearts-container .heart:nth-child(9) { left: 90%; animation-delay: 4.5s; }
+.hearts-container .heart:nth-child(10) { left: 5%; animation-delay: 0s; animation-duration: 6s; }
+.hearts-container .heart:nth-child(11) { left: 15%; animation-delay: 2s; animation-duration: 7s; }
+.hearts-container .heart:nth-child(12) { left: 25%; animation-delay: 4s; animation-duration: 5s; }
+.hearts-container .heart:nth-child(13) { left: 35%; animation-delay: 1s; animation-duration: 8s; }
+.hearts-container .heart:nth-child(14) { left: 45%; animation-delay: 3s; animation-duration: 6s; }
+.hearts-container .heart:nth-child(15) { left: 55%; animation-delay: 0s; animation-duration: 7s; }
+.hearts-container .heart:nth-child(16) { left: 65%; animation-delay: 2.5s; animation-duration: 5s; }
+.hearts-container .heart:nth-child(17) { left: 75%; animation-delay: 4.5s; animation-duration: 8s; }
+.hearts-container .heart:nth-child(18) { left: 85%; animation-delay: 1.5s; animation-duration: 6s; }
+.hearts-container .heart:nth-child(19) { left: 95%; animation-delay: 3.5s; animation-duration: 7s; }
+.hearts-container .heart:nth-child(20) { left: 50%; animation-delay: 0.8s; animation-duration: 9s; }
+
+@keyframes fall {
+0% { top: -20px; opacity: 0; transform: translate(-50%, 0) rotate(45deg) scale(1); }
+50% { opacity: 0.8; }
+100% { top: 105vh; opacity: 0; transform: translate(-50%, 100vh) rotate(45deg) scale(0.8); }
+}
+
+@keyframes pulse {
+0% { transform: rotate(45deg) scale(1); }
+50% { transform: rotate(45deg) scale(1.1); }
+100% { transform: rotate(45deg) scale(1); }
+}
+
+.container {
+max-width: 960px;
+margin: 0 auto;
+padding: 20px;
+text-align: center;
+z-index: 1;
+background-color: rgba(255, 255, 255, 0.9);
+border-radius: 15px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+padding-bottom: 40px;
+}
+
+header {
+padding: 30px 0;
+}
+
+h1 {
+font-size: 3.5em;
+margin-bottom: 0.1em;
+color: #e91e63;
+letter-spacing: 2px;
+}
+
+.names {
+font-size: 1.8em;
+font-weight: bold;
+margin-top: 0;
+color: #880e4f;
+text-transform: uppercase;
+}
+
+section {
+padding: 30px 20px;
+margin-bottom: 30px;
+background-color: #fff;
+border-radius: 10px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+color: #e91e63;
+margin-bottom: 1em;
+}
+
+/* Estilo do Quebra-cabeça */
+#puzzle .puzzle-container {
+position: relative;
+width: 300px;
+height: 300px;
+margin: 20px auto;
+border: 5px solid #ff4081;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#puzzle .puzzle-piece {
+position: absolute;
+width: 33.33%;
+height: 33.33%;
+background-image: url('casal_completa.jpg');
+background-size: 300px 300px;
+background-position: calc(var(--col) * -100px) calc(var(--row) * -100px);
+opacity: 0;
+transform: scale(0.8);
+animation: assemble 1.5s forwards ease-out;
+animation-delay: calc(0.2s * (var(--row) * 3 + var(--col)));
+}
+
+@keyframes assemble {
+to {
+opacity: 1;
+transform: scale(1);
+}
+}
+
+/* Estilo da Galeria de Fotos */
+#gallery {
+text-align: center;
+}
+
+.photo-card {
+display: inline-block;
+width: 250px;
+margin: 15px;
+border: 5px solid #ff4081;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo-card img {
+width: 100%;
+height: auto;
+display: block;
+}
+
+.photo-card .caption {
+padding: 10px;
+background-color: rgba(0, 0, 0, 0.6);
+color: #fff;
+font-size: 0.9em;
+text-align: center;
+margin-bottom: 0;
+}
+
+/* Estilo das Frases */
+#quotes {
+text-align: center;
+}
+
+.quote-box {
+background-color: #f9f9f9;
+border: 1px solid #eee;
+border-radius: 8px;
+padding: 20px;
+margin: 15px auto;
+max-width: 600px;
+font-style: italic;
+color: #6a1b9a;
+}
+
+.quote-box p {
+margin-bottom: 0;
+}
+
+/* Estilo do QR Code Spotify */
+#spotify {
+text-align: center;
+background-color: #191414;
+color: #1DB954; /* Esta cor é o verde do Spotify */
+padding: 40px 20px;
+border-radius: 10px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.spotify-qr h2 {
+    color: #1DB954; /* Esta regra é redundante, mas não causa problema */
+    margin-bottom: 0.5em;
+}
+
+.spotify-qr img {
+width: 300px; /* Aumenta a largura da imagem */
+height: auto; /* Mantém a proporção original */
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+margin-bottom: 10px;
+}
+
+.spotify-qr p {
+font-size: 0.9em;
+margin-top: 0;
+}
+
+/* Animação de Fade In */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(-20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+
+body > div.container {
+animation: fadeIn 2s ease-out forwards;
+opacity: 0;
+}
+
+/* Estilos para a Seção da Pergunta e Botões */
+#question-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-top: 30px;
+}
+
+#question-section h2 {
+  color: #e91e63;
+  margin-bottom: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button-option {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.yes-button {
+  background-color: #e91e63;
+  color: #fff;
+}
+
+.yes-button:hover {
+  transform: translateY(-3px);
+  background-color: #d81b60;
+}
+
+.no-button {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: pointer;
+}

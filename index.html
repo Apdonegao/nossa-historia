@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6 Anos de Namoro | Alisson & Vitória</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="hearts-container">
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+</div>
+
+<div class="container">
+<header>
+<h1>Feliz 6 Anos</h1>
+<p class="names">Alisson & Vitória</p>
+</header>
+
+<section id="gallery">
+<h2>❤️ Nossa História ❤️</h2>
+<div class="photo-card">
+<img src="casal_completa.JPG" alt="Foto">
+<div>
+</section>
+
+<section id="gallery">
+<h2>Alguns Momentos Marcantes Nessa Trajetória...</h2>
+<div class="photo-card">
+<img src="recomeço.JPG" alt="Foto 1">
+<p class="caption">Nosso recomeço de tudo</p>
+</div>
+<div class="photo-card">
+<img src="pelotas.JPG" alt="Foto 2">
+<p class="caption">Nossa primeira vez em outra cidade juntos</p>
+</div>
+<div class="photo-card">
+<img src="hotel.JPG" alt="Foto 3">
+<p class="caption">Minha primeira experiência em um hotel contigo</p>
+</div>
+<div class="photo-card">
+<img src="montenegro.JPG" alt="Foto 4">
+<p class="caption">Nossa primeira viagem "longe"</p>
+</div>
+<div class="photo-card">
+<img src="cinema.JPG" alt="Foto 6">
+<p class="caption">Nosso lazer e teus ursos</p>
+</div>
+<div class="photo-card">
+<img src="meu tudo.jpg" alt="Foto 5">
+<p class="caption">Minha metade em tudo</p>
+</div>
+</section>
+
+<section id="quotes">
+<h2> Algumas Palavras Marcantes...</h2>
+<div class="quote-box">
+<p class="quote">"Minha baixinha" - Alisson</p>
+</div>
+<div class="quote-box">
+<p class="quote">"O que Deus une ninguém separa." - Vitória</p>
+</div>
+<div class="quote-box">
+<p class="quote">"Meu toquinho" - Alisson</p>
+</div>
+<div class="quote-box">
+<p class="quote">"Deus abençoou nossa união" - Vitória</p>
+<div>
+</section>
+
+<section id="spotify">
+<div class="spotify-qr">
+<h2>Sortudo sou eu em ter você na minha vida</h2>
+<img src="spotify_qrcode.png" alt="QR Code da nossa música no Spotify" width="150">
+</div>
+</section>
+
+<section id="question-section">
+      <h2>Você me quer ainda?</h2>
+      <div class="buttons-container">
+        <a href="#" class="button-option yes-button" id="yesBtn">Sim</a>
+        <a href="#" class="button-option no-button" id="noBtn">Não</a>
+      </div>
+    </section>
+
+    <div id="message-container" style="display:none; text-align:center; margin-top: 20px;">
+      <h2 style="color: #e91e63;">Eu te amo, amor!</h2>
+    </div>
+
+    <div id="sad-message-container" style="display:none; text-align:center; margin-top: 20px;">
+      <h2 style="color: #880e4f;">Poxa, amor.</h2>
+    </div>
+
+</div>
+
+<script>
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const messageContainer = document.getElementById('message-container');
+  const sadMessageContainer = document.getElementById('sad-message-container');
+  const mainContainer = document.querySelector('.container');
+
+  noBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('question-section').style.display = 'none';
+    mainContainer.style.display = 'none';
+    sadMessageContainer.style.display = 'block';
+
+    sadMessageContainer.style.opacity = '0';
+    setTimeout(() => {
+        sadMessageContainer.style.transition = 'opacity 1s ease';
+        sadMessageContainer.style.opacity = '1';
+    }, 10);
+  });
+
+  yesBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('question-section').style.display = 'none';
+    messageContainer.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
